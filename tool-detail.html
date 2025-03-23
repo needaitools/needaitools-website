@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tool Detail - AI Writer Pro | AIToolHub</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Additional styles specific to tool detail page */
+        .tool-detail-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: var(--spacing-xl) 0;
+        }
+        
+        .tool-detail-content {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: var(--spacing-xl);
+        }
+        
+        .tool-main-info {
+            background-color: white;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+            padding: var(--spacing-lg);
+            margin-top: -60px;
+        }
+        
+        .tool-sidebar {
+            margin-top: var(--spacing-xl);
+        }
+        
+        .tool-logo-large {
+            width: 100px;
+            height: 100px;
+            background-color: white;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--spacing-md);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .tool-logo-large img {
+            max-width: 80%;
+            max-height: 80%;
+        }
+        
+        .tool-title-section {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .tool-title-info {
+            margin-left: var(--spacing-md);
+        }
+        
+        .tool-title-info h1 {
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .tool-meta {
+            display: flex;
+            gap: var(--spacing-md);
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .tool-meta-item {
+            display: flex;
+            align-items: center;
+        }
+        
+        .tool-meta-item i {
+            margin-right: var(--spacing-xs);
+        }
+        
+        .tool-actions-bar {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .tool-description {
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .tool-features {
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .feature-icon {
+            color: var(--success);
+            margin-right: var(--spacing-sm);
+            margin-top: 3px;
+        }
+        
+        .pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .pros, .cons {
+            background-color: var(--gray-light);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+        }
+        
+        .pros h3 {
+            color: var(--success);
+        }
+        
+        .cons h3 {
+            color: var(--danger);
+        }
+        
+        .pros-list, .cons-list {
+            list-style: none;
+        }
+        
+        .pros-list li, .cons-list li {
+            margin-bottom: var(--spacing-sm);
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .pros-list li i {
+            color: var(--success);
+            margin-right: var(--spacing-sm);
+            margin-top: 3px;
+        }
+        
+        .cons-list li i {
+            color: var(--danger);
+            margin-right: var(--spacing-sm);
+            margin-top: 3px;
+        }
+        
+        .tool-screenshots {
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+        }
+        
+        .screenshot {
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .screenshot img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .tool-reviews {
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .review-card {
+            background-color: var(--gray-light);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .reviewer {
+            font-weight: 500;
+        }
+        
+        .review-date {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .sidebar-card {
+            background-color: white;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .sidebar-card h3 {
+            margin-bottom: var(--spacing-md);
+            font-size: 1.1rem;
+        }
+        
+        .pricing-info {
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .pricing-model {
+            display: inline-block;
+            background-color: var(--success);
+            color: white;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--radius-sm);
+            font-size: 0.9rem;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .pricing-amount {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .pricing-period {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .pricing-features {
+            list-style: none;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .pricing-features li {
+            margin-bottom: var(--spacing-sm);
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .pricing-features li i {
+            color: var(--success);
+            margin-right: var(--spacing-sm);
+            margin-top: 3px;
+        }
+        
+        .rating-box {
+            text-align: center;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .rating-large {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+        
+        .stars-large {
+            color: var(--warning);
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .rating-count {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .rating-breakdown {
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .rating-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .rating-label {
+            width: 30px;
+            text-align: right;
+            margin-right: var(--spacing-sm);
+        }
+        
+        .rating-bar {
+            flex: 1;
+            height: 8px;
+            background-color: var(--gray-light);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .rating-fill {
+            height: 100%;
+            background-color: var(--warning);
+        }
+        
+        .similar-tools {
+            margin-top: var(--spacing-xxl);
+        }
+        
+        @media (max-width: 992px) {
+            .tool-detail-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .tool-sidebar {
+                margin-top: 0;
+            }
+            
+            .pros-cons {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">AITool<span>Hub</span></a>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="categories.html">Categories</a></li>
+                        <li><a href="tools.html" class="active">Tools</a></li>
+                        <li><a href="compare.html">Compare</a></li>
+                        <li><a href="submit.html">Submit Tool</a></li>
+                    </ul>
+                </nav>
+                <div class="auth-buttons">
+                    <a href="#" class="btn btn-outline">Login</a>
+                    <a href="#" class="btn btn-primary">Sign Up</a>
+                </div>
+                <button class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Tool Detail Header -->
+    <section class="tool-detail-header">
+        <div class="container">
+            <div class="tool-category">
+                <a href="category.html?id=text-writing">Text & Writing</a> / <a href="tools.html?tag=content-creation">Content Creation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tool Detail Content -->
+    <div class="container">
+        <div class="tool-detail-content">
+            <div class="tool-main">
+                <div class="tool-main-info">
+                    <div class="tool-title-section">
+                        <div class="tool-logo-large">
+                            <img src="img/placeholder-logo.png" alt="AI Writer Pro">
+                        </div>
+                        <div class="tool-title-info">
+                            <h1>AI Writer Pro</h1>
+                            <div class="tool-meta">
+                                <div class="tool-meta-item">
+                                    <i class="fas fa-globe"></i>
+                                    <span>Website: <a href="https://example.com/ai-writer-pro" target="_blank">aiwriterpro.com</a></span>
+                                </div>
+                                <div class="tool-meta-item">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>Updated: March 15, 2025</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tool-actions-bar">
+                        <a href="https://example.com/ai-writer-pro" target="_blank" class="btn btn-primary">
+                            <i class="fas fa-external-link-alt"></i> Visit Website
+                        </a>
+                        <button class="btn btn-outline" id="save-tool">
+                            <i class="far fa-bookmark"></i> Save Tool
+                        </button>
+                        <button class="btn btn-outline" id="add-to-compare">
+                            <i class="fas fa-balance-scale"></i> Add to Compare
+                        </button>
+                        <button class="btn btn-outline" id="share-tool">
+                            <i class="fas fa-share-alt"></i> Share
+                        </button>
+                    </div>
+                    
+                    <div class="tool-description">
+                        <h2>About AI Writer Pro</h2>
+                        <p>AI Writer Pro is an advanced AI writing assistant that helps you create high-quality content for blogs, social media, marketing materials, and more. Powered by state-of-the-art language models, it offers a wide range of writing tools to enhance your productivity and creativity.</p>
+                        <p>Whether you're a professional writer, marketer, student, or business owner, AI Writer Pro provides intelligent assistance for all your writing needs. From generating ideas and outlines to polishing your final draft, this tool streamlines your writing workflow and helps you produce better content faster.</p>
+                    </div>
+                    
+                    <div class="tool-features">
+                        <h2>Key Features</h2>
+                        <div class="features-list">
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Content generation for 10+ formats</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Grammar and style improvement</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Tone adjustment (formal, casual, persuasive)</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Plagiarism detection</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>SEO optimization suggestions</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Readability analysis</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Support for 25+ languages</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                                <div>Browser extension for anywhere writing</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <h3><i class="fas fa-thumbs-up"></i> Pros</h3>
+                            <ul class="pros-list">
+                                <li><i class="fas fa-check"></i> Intuitive and user-friendly interface</li>
+                                <li><i class="fas fa-check"></i> High-quality content generation</li>
+                                <li><i class="fas fa-check"></i> Excellent multilingual support</li>
+                                <li><i class="fas fa-check"></i> Comprehensive writing tools in one platform</li>
+                                <li><i class="fas fa-check"></i> Regular updates with new features</li>
+                            </ul>
+       <response clipped><NOTE>To save on context only part of this file has been shown to you. You should retry this tool after you have searched inside the file with `grep -n` in order to find the line numbers of what you are looking for.</NOTE>

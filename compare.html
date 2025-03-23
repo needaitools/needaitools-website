@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compare AI Tools | AIToolHub</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Additional styles specific to compare page */
+        .compare-container {
+            margin-top: var(--spacing-xl);
+        }
+        
+        .compare-tools-selection {
+            background-color: white;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .compare-header {
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .compare-header h1 {
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .selected-tools {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .selected-tool {
+            background-color: var(--gray-light);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        
+        .selected-tool-logo {
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: var(--spacing-sm);
+        }
+        
+        .selected-tool-logo img {
+            max-width: 80%;
+            max-height: 80%;
+        }
+        
+        .selected-tool-info {
+            flex: 1;
+        }
+        
+        .selected-tool-name {
+            font-weight: 500;
+            margin-bottom: 2px;
+        }
+        
+        .selected-tool-category {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+        
+        .remove-tool {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            width: 20px;
+            height: 20px;
+            background-color: var(--gray);
+            color: white;
+            border-radius: var(--radius-round);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .remove-tool:hover {
+            background-color: var(--danger);
+        }
+        
+        .add-tool-placeholder {
+            background-color: var(--gray-light);
+            border: 2px dashed var(--gray);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            height: 100%;
+        }
+        
+        .add-tool-placeholder:hover {
+            border-color: var(--primary);
+            background-color: rgba(67, 97, 238, 0.05);
+        }
+        
+        .add-tool-placeholder i {
+            font-size: 1.5rem;
+            color: var(--gray);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .add-tool-placeholder span {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        .search-tools {
+            margin-top: var(--spacing-md);
+        }
+        
+        .search-tools input {
+            width: 100%;
+            padding: var(--spacing-md);
+            border: 1px solid var(--gray-light);
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: var(--spacing-xl);
+            background-color: white;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .comparison-table-header {
+            position: sticky;
+            top: 70px;
+            background-color: var(--primary-dark);
+            color: white;
+            z-index: 10;
+        }
+        
+        .comparison-row {
+            display: grid;
+            grid-template-columns: 1.5fr repeat(3, 1fr);
+            border-bottom: 1px solid var(--gray-light);
+        }
+        
+        .comparison-row:last-child {
+            border-bottom: none;
+        }
+        
+        .comparison-feature,
+        .comparison-value {
+            padding: var(--spacing-md);
+            display: flex;
+            align-items: center;
+        }
+        
+        .comparison-feature {
+            font-weight: 500;
+            background-color: var(--gray-light);
+        }
+        
+        .comparison-section {
+            grid-column: 1 / -1;
+            background-color: var(--primary);
+            color: white;
+            font-weight: 500;
+            padding: var(--spacing-md);
+        }
+        
+        .comparison-value.positive {
+            color: var(--success);
+        }
+        
+        .comparison-value.negative {
+            color: var(--danger);
+        }
+        
+        .comparison-value.highlight {
+            background-color: rgba(67, 97, 238, 0.1);
+            font-weight: 500;
+        }
+        
+        .comparison-value i {
+            margin-right: var(--spacing-xs);
+        }
+        
+        .comparison-actions {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .tool-search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: white;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-lg);
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 100;
+            display: none;
+        }
+        
+        .tool-search-results.active {
+            display: block;
+        }
+        
+        .tool-search-item {
+            display: flex;
+            align-items: center;
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-bottom: 1px solid var(--gray-light);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .tool-search-item:hover {
+            background-color: var(--gray-light);
+        }
+        
+        .tool-search-item:last-child {
+            border-bottom: none;
+        }
+        
+        .tool-search-logo {
+            width: 30px;
+            height: 30px;
+            background-color: var(--gray-light);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: var(--spacing-sm);
+        }
+        
+        .tool-search-logo img {
+            max-width: 80%;
+            max-height: 80%;
+        }
+        
+        .tool-search-info {
+            flex: 1;
+        }
+        
+        .tool-search-name {
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        
+        .tool-search-category {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+        
+        @media (max-width: 992px) {
+            .comparison-row {
+                grid-template-columns: 1.5fr repeat(2, 1fr);
+            }
+            
+            .comparison-value:nth-child(4) {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .comparison-row {
+                grid-template-columns: 1.5fr 1fr;
+            }
+            
+            .comparison-value:nth-child(3) {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .selected-tools {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">AITool<span>Hub</span></a>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="categories.html">Categories</a></li>
+                        <li><a href="tools.html">Tools</a></li>
+                        <li><a href="compare.html" class="active">Compare</a></li>
+                        <li><a href="submit.html">Submit Tool</a></li>
+                    </ul>
+                </nav>
+                <div class="auth-buttons">
+                    <a href="#" class="btn btn-outline">Login</a>
+                    <a href="#" class="btn btn-primary">Sign Up</a>
+                </div>
+                <button class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Compare Tools Section -->
+    <section class="compare-container">
+        <div class="container">
+            <div class="compare-tools-selection">
+                <div class="compare-header">
+                    <h1>Compare AI Tools</h1>
+                    <p>Select up to 4 AI tools to compare features, pricing, and ratings side by side.</p>
+                </div>
+                
+                <div class="selected-tools">
+                    <div class="selected-tool">
+                        <div class="selected-tool-logo">
+                            <img src="img/placeholder-logo.png" alt="AI Writer Pro">
+                        </div>
+                        <div class="selected-tool-info">
+                            <div class="selected-tool-name">AI Writer Pro</div>
+                            <div class="selected-tool-category">Text & Writing</div>
+                        </div>
+                        <div class="remove-tool" data-tool-id="ai-writer-pro">×</div>
+                    </div>
+                    
+                    <div class="selected-tool">
+                        <div class="selected-tool-logo">
+                            <img src="img/placeholder-logo.png" alt="ContentGenius">
+                        </div>
+                        <div class="selected-tool-info">
+                            <div class="selected-tool-name">ContentGenius</div>
+                            <div class="selected-tool-category">Text & Writing</div>
+                        </div>
+                        <div class="remove-tool" data-tool-id="content-genius">×</div>
+                    </div>
+                    
+                    <div class="selected-tool">
+                        <div class="selected-tool-logo">
+                            <img src="img/placeholder-logo.png" alt="ScribeAI">
+                        </div>
+                        <div class="selected-tool-info">
+                            <div class="selected-tool-name">ScribeAI</div>
+                            <div class="selected-tool-category">Text & Writing</div>
+                        </div>
+                        <div class="remove-tool" data-tool-id="scribe-ai">×</div>
+                    </div>
+                    
+                    <div class="add-tool-placeholder" id="add-tool-btn">
+                        <i class="fas fa-plus-circle"></i>
+                        <span>Add Tool</span>
+                    </div>
+                </div>
+                
+                <div class="search-tools" style="position: relative;">
+                    <input type="text" id="tool-search" placeholder="Search for AI tools to compare..." style="display: none;">
+                    <div class="tool-search-results" id="search-results">
+                        <!-- Search results will be populated here -->
+                    </div>
+                </div>
+            </div>
+            
+            <div class="comparison-table">
+                <div class="comparison-row comparison-table-header">
+                    <div class="comparison-feature">Features</div>
+                    <div class="comparison-value">AI Writer Pro</div>
+                    <div class="comparison-value">ContentGenius</div>
+                    <div class="comparison-value">ScribeAI</div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="comparison-section">General Information</div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="comparison-feature">Category</div>
+                    <div class="comparison-value">Text & Writing</div>
+                    <div class="comparison-value">Text & Writing</div>
+                    <div class="comparison-value">Text & Writing</div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="comparison-feature">Rating</div>
+                    <div class="comparison-value highlight">★★★★★ 4.9</div>
+                    <div class="comparison-value">★★★★☆ 4.7</div>
+                    <div class="comparison-value">★★★★☆ 4.5</div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="comparison-feature">Pricing Model</div>
+                    <div class="comparison-value">Freemium</div>
+                    <div class="comparison-value">Paid</div>
+                    <div class="comparison-value">Freemium</div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="comparison-feature">Starting Price</div>
+                    <div class="comparison-value highlight">$19/mo</div>
+                    <div class="comparison-value">$29/mo</div>
+                    <div class="comparison-value">$15/mo</div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="comparison-feature">Free Trial</div>
+                    <div class="comparison-value positive"><i class="fas fa-check"></i> 7 days</div>
+                    <div class="comparison-value positive"><i class="fas fa-check"></i> 14 days</div>
+                    <div class="comparison-value positive"><i class="fas fa-check"></i> 5 days</div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="comparison-feature">Free Plan</div>
+                    <div class="comparison-value positive"><i class="fas fa-check"></i> 5,000 words/mo</div>
+                    <div class="comparison-value negative"><i class="fas fa-times"></i> No</div>
+                    <div class="comparison-value positive"><i class="fas fa-check"></i> 3,000 words/mo</div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="comparison-section">Features</div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="comparison-feature">Content Types</div>
+                    <div class="comparison-value highlight">10+</div>
+                    <div class="comparison-value">8</div>
+                    <div class="comparison-value">5</div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="comparison-feature">Languages Supported</div>
+                    <div class="comparison-value high<response clipped><NOTE>To save on context only part of this file has been shown to you. You should retry this tool after you have searched inside the file with `grep -n` in order to find the line numbers of what you are looking for.</NOTE>

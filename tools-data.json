@@ -1,0 +1,319 @@
+{
+  "tools": [
+    {
+      "id": "ai-writer-pro",
+      "name": "AI Writer Pro",
+      "description": "Advanced AI writing assistant that helps you create high-quality content for blogs, social media, and more.",
+      "category": "Text & Writing",
+      "tags": ["Content Creation", "Blogging", "Social Media"],
+      "rating": 4.9,
+      "pricing": "Freemium",
+      "pricingAmount": "$19/mo",
+      "logo": "img/placeholder-logo.png",
+      "features": [
+        "Content generation for 10+ formats",
+        "Grammar and style improvement",
+        "Tone adjustment (formal, casual, persuasive)",
+        "Plagiarism detection",
+        "SEO optimization suggestions",
+        "Readability analysis",
+        "Support for 25+ languages",
+        "Browser extension for anywhere writing"
+      ],
+      "pros": [
+        "Intuitive and user-friendly interface",
+        "High-quality content generation",
+        "Excellent multilingual support",
+        "Comprehensive writing tools in one platform",
+        "Regular updates with new features"
+      ],
+      "cons": [
+        "Free plan has limited word count",
+        "Advanced features require premium subscription",
+        "Occasional inaccuracies in technical content",
+        "Mobile app lacks some desktop features"
+      ],
+      "url": "https://example.com/ai-writer-pro"
+    },
+    {
+      "id": "pixel-genius",
+      "name": "PixelGenius",
+      "description": "Create stunning images and artwork with this powerful AI image generation tool. Perfect for designers and creatives.",
+      "category": "Image Generation",
+      "tags": ["Design", "Art", "Creative"],
+      "rating": 4.7,
+      "pricing": "Paid",
+      "pricingAmount": "$29/mo",
+      "logo": "img/placeholder-logo.png",
+      "features": [
+        "Text-to-image generation",
+        "Image editing and enhancement",
+        "Style transfer capabilities",
+        "Custom model fine-tuning",
+        "Batch processing",
+        "Commercial usage rights",
+        "High-resolution output",
+        "Template library"
+      ],
+      "pros": [
+        "Exceptional image quality",
+        "Intuitive prompt interface",
+        "Fast generation times",
+        "Extensive style options",
+        "Regular model updates"
+      ],
+      "cons": [
+        "No free tier available",
+        "Higher price point than competitors",
+        "Steep learning curve for advanced features",
+        "Limited integration options"
+      ],
+      "url": "https://example.com/pixel-genius"
+    },
+    {
+      "id": "code-assist-ai",
+      "name": "CodeAssist AI",
+      "description": "AI-powered coding assistant that helps developers write better code faster with intelligent suggestions and debugging.",
+      "category": "Code & Development",
+      "tags": ["Productivity", "Programming", "Software Development"],
+      "rating": 4.8,
+      "pricing": "Free",
+      "pricingAmount": "Open Source",
+      "logo": "img/placeholder-logo.png",
+      "features": [
+        "Code completion and suggestions",
+        "Bug detection and fixing",
+        "Code refactoring assistance",
+        "Documentation generation",
+        "Multi-language support",
+        "IDE integration",
+        "Custom code pattern learning",
+        "Performance optimization suggestions"
+      ],
+      "pros": [
+        "Completely free and open source",
+        "Supports over 20 programming languages",
+        "Integrates with popular IDEs",
+        "Active community development",
+        "Privacy-focused (runs locally)"
+      ],
+      "cons": [
+        "Requires significant system resources",
+        "Less accurate for niche programming languages",
+        "Setup process can be complex",
+        "Limited enterprise support options"
+      ],
+      "url": "https://example.com/code-assist-ai"
+    },
+    {
+      "id": "video-magic-ai",
+      "name": "VideoMagic AI",
+      "description": "Transform your ideas into professional videos with this AI-powered video creation and editing platform.",
+      "category": "Video Creation",
+      "tags": ["Editing", "Content Creation", "Marketing"],
+      "rating": 4.6,
+      "pricing": "Freemium",
+      "pricingAmount": "$39/mo",
+      "logo": "img/placeholder-logo.png",
+      "features": [
+        "Text-to-video generation",
+        "Automated video editing",
+        "Voice-over synthesis",
+        "Template library",
+        "Stock footage access",
+        "Custom branding options",
+        "Multi-format export",
+        "Collaboration tools"
+      ],
+      "pros": [
+        "Intuitive drag-and-drop interface",
+        "High-quality video output",
+        "Extensive template library",
+        "Time-saving automation features",
+        "Regular feature updates"
+      ],
+      "cons": [
+        "Free tier has watermarks",
+        "Limited export options in lower tiers",
+        "Some advanced features have steep learning curve",
+        "Occasional rendering delays during peak times"
+      ],
+      "url": "https://example.com/video-magic-ai"
+    },
+    {
+      "id": "data-insight-ai",
+      "name": "DataInsight AI",
+      "description": "Analyze and visualize your data with powerful AI-driven insights. Perfect for business intelligence and analytics.",
+      "category": "Business & Productivity",
+      "tags": ["Data Analysis", "Business Intelligence", "Visualization"],
+      "rating": 4.5,
+      "pricing": "Paid",
+      "pricingAmount": "$49/mo",
+      "logo": "img/placeholder-logo.png",
+      "features": [
+        "Automated data analysis",
+        "Predictive analytics",
+        "Interactive dashboards",
+        "Natural language querying",
+        "Multi-source data integration",
+        "Anomaly detection",
+        "Scheduled reports",
+        "Custom visualization options"
+      ],
+      "pros": [
+        "No coding required for complex analysis",
+        "Intuitive natural language interface",
+        "Beautiful visualization options",
+        "Handles large datasets efficiently",
+        "Strong data security features"
+      ],
+      "cons": [
+        "Higher price point than competitors",
+        "Limited free trial period",
+        "Advanced features require training",
+        "Some data source connectors require additional fees"
+      ],
+      "url": "https://example.com/data-insight-ai"
+    },
+    {
+      "id": "melody-maker-ai",
+      "name": "MelodyMaker AI",
+      "description": "Create original music and audio with this AI-powered music generation tool. No musical experience required.",
+      "category": "Audio & Voice",
+      "tags": ["Music", "Creative", "Entertainment"],
+      "rating": 4.4,
+      "pricing": "Freemium",
+      "pricingAmount": "$24/mo",
+      "logo": "img/placeholder-logo.png",
+      "features": [
+        "AI music composition",
+        "Genre and style selection",
+        "Instrument customization",
+        "Vocal synthesis",
+        "Mood-based generation",
+        "Export in multiple formats",
+        "Stem separation",
+        "Collaborative editing"
+      ],
+      "pros": [
+        "No musical knowledge required",
+        "High-quality audio output",
+        "Extensive genre options",
+        "Intuitive interface",
+        "Commercial rights included"
+      ],
+      "cons": [
+        "Limited track length in free tier",
+        "Some generated pieces sound similar",
+        "Advanced editing requires musical knowledge",
+        "Occasional processing delays for complex compositions"
+      ],
+      "url": "https://example.com/melody-maker-ai"
+    },
+    {
+      "id": "content-genius",
+      "name": "ContentGenius",
+      "description": "AI-powered content creation platform with advanced SEO features and research capabilities.",
+      "category": "Text & Writing",
+      "tags": ["SEO", "Content Marketing", "Research"],
+      "rating": 4.7,
+      "pricing": "Paid",
+      "pricingAmount": "$29/mo",
+      "logo": "img/placeholder-logo.png",
+      "features": [
+        "SEO-optimized content creation",
+        "Keyword research and analysis",
+        "Competitor content analysis",
+        "Content strategy planning",
+        "Automated research",
+        "Readability optimization",
+        "Content performance tracking",
+        "Multi-platform publishing"
+      ],
+      "pros": [
+        "Comprehensive SEO integration",
+        "Data-driven content recommendations",
+        "Excellent research automation",
+        "Regular algorithm updates",
+        "Intuitive content calendar"
+      ],
+      "cons": [
+        "No free tier available",
+        "Steeper learning curve than competitors",
+        "Limited template options",
+        "Some features require additional subscriptions"
+      ],
+      "url": "https://example.com/content-genius"
+    },
+    {
+      "id": "scribe-ai",
+      "name": "ScribeAI",
+      "description": "Specialized AI writing assistant for long-form content with built-in research and citation tools.",
+      "category": "Text & Writing",
+      "tags": ["Research", "Academic", "Long-form Content"],
+      "rating": 4.5,
+      "pricing": "Freemium",
+      "pricingAmount": "$15/mo",
+      "logo": "img/placeholder-logo.png",
+      "features": [
+        "Long-form content generation",
+        "Academic writing assistance",
+        "Automated research",
+        "Citation management",
+        "Fact-checking",
+        "Plagiarism detection",
+        "Collaborative editing",
+        "Multiple citation styles"
+      ],
+      "pros": [
+        "Excellent for academic and research writing",
+        "Accurate citation generation",
+        "Helpful fact-checking features",
+        "Desktop application available",
+        "Privacy-focused approach"
+      ],
+      "cons": [
+        "Limited formatting options",
+        "Less suitable for creative content",
+        "Research features sometimes slow",
+        "Premium required for advanced features"
+      ],
+      "url": "https://example.com/scribe-ai"
+    },
+    {
+      "id": "wordcraft",
+      "name": "WordCraft",
+      "description": "Creative writing assistant with storytelling capabilities and genre-specific templates.",
+      "category": "Text & Writing",
+      "tags": ["Creative", "Storytelling", "Fiction"],
+      "rating": 4.6,
+      "pricing": "Paid",
+      "pricingAmount": "$24/mo",
+      "logo": "img/placeholder-logo.png",
+      "features": [
+        "Story plot generation",
+        "Character development",
+        "Dialogue writing assistance",
+        "Genre-specific templates",
+        "World-building tools",
+        "Narrative structure guidance",
+        "Writing prompts",
+        "Manuscript formatting"
+      ],
+      "pros": [
+        "Specialized for creative and fiction writing",
+        "Excellent character development tools",
+        "Helpful for overcoming writer's block",
+        "Intuitive story structure guidance",
+        "Regular content updates"
+      ],
+      "cons": [
+        "No free tier available",
+        "Less useful for non-fiction writing",
+        "Limited export options",
+        "Some generated content needs significant editing"
+      ],
+      "url": "https://example.com/wordcraft"
+    }
+  ]
+}
